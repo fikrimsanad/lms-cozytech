@@ -413,7 +413,7 @@ export default function Home() {
             </p>
             <Button
               variant="outline"
-              className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black"
+              className="border border-cyan-400 rounded-sm text-cyan-400 hover:bg-cyan-400 hover:text-black px-8 py-2"
             >
               Konsultasi Gratis dengan Career Advisor
             </Button>
@@ -591,11 +591,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-12 flex justify-center">
             <Link href="/">
               <Button
                 variant="outline"
-                className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black font-semibold"
+                className="border-2 flex gap-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black font-semibold px-8 py-2 rounded-sm"
               >
                 Lihat Semua Kursus
                 <ChevronRight className="ml-2" />
@@ -625,7 +625,89 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"></div>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
+            <div className="bg-gray-800 border border-gray-700 overflow-hidden group hover:border-cyan-500/50 transition-all hover:shadow-2xl hover:shadow-cyan-500/20 rounded-lg">
+              <div className="relative overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/716276/pexels-photo-716276.jpeg?auto=compress&cs=tinysrgb&w=800 "
+                  alt="image-course"
+                  className="w-full h-92 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+
+                <div className="absolute bottom-2 left-1">
+                  <div className="px-4 space-y-1">
+                    <h4 className="text-white text-3xl">Andi Wijaya</h4>
+                    <p className="text-cyan-500">Senior Unity Instructor</p>
+                    <p className="text-white">
+                      Unity Development & Mobile Games
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="py-5 px-4 space-y-2">
+                <p className="text-gray-400">
+                  Master Unity engine dari dasar hingga advanced. Buat game 2D
+                  dan 3D dengan C# scripting, physics, dan game mechanics.
+                </p>
+              </div>
+            </div>
+            <div className="bg-gray-800 border border-gray-700 overflow-hidden group hover:border-cyan-500/50 transition-all hover:shadow-2xl hover:shadow-cyan-500/20 rounded-lg">
+              <div className="relative overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/716276/pexels-photo-716276.jpeg?auto=compress&cs=tinysrgb&w=800 "
+                  alt="image-course"
+                  className="w-full h-92 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+
+                <div className="absolute bottom-2 left-1">
+                  <div className="px-4 space-y-1">
+                    <h4 className="text-white text-3xl">Andi Wijaya</h4>
+                    <p className="text-cyan-500">Senior Unity Instructor</p>
+                    <p className="text-white">
+                      Unity Development & Mobile Games
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="py-5 px-4 space-y-2">
+                <p className="text-gray-400">
+                  Master Unity engine dari dasar hingga advanced. Buat game 2D
+                  dan 3D dengan C# scripting, physics, dan game mechanics.
+                </p>
+              </div>
+            </div>
+            <div className="bg-gray-800 border border-gray-700 overflow-hidden group hover:border-cyan-500/50 transition-all hover:shadow-2xl hover:shadow-cyan-500/20 rounded-lg">
+              <div className="relative overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/716276/pexels-photo-716276.jpeg?auto=compress&cs=tinysrgb&w=800 "
+                  alt="image-course"
+                  className="w-full h-92 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+
+                <div className="absolute bottom-2 left-1">
+                  <div className="px-4 space-y-1">
+                    <h4 className="text-white text-3xl">Andi Wijaya</h4>
+                    <p className="text-cyan-500">Senior Unity Instructor</p>
+                    <p className="text-white">
+                      Unity Development & Mobile Games
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="py-5 px-4 space-y-2">
+                <p className="text-gray-400">
+                  Master Unity engine dari dasar hingga advanced. Buat game 2D
+                  dan 3D dengan C# scripting, physics, dan game mechanics.
+                </p>
+              </div>
+            </div>
+          </div>
 
           <div className="text-center mt-12">
             <p className="text-gray-400 mb-4">
@@ -672,12 +754,14 @@ export default function Home() {
 
           {/* Video Testimonial - Featured */}
           <div className="mb-16">
-            <Card className="bg-gray-900 border-gray-800 overflow-hidden">
+            <Card className="bg-gray-900 border-gray-800 overflow-hidden rounded-lg">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 {/* Video */}
                 <div className="relative aspect-video lg:aspect-auto">
                   <img
-                    src={""}
+                    src={
+                      "https://images.pexels.com/photos/716276/pexels-photo-716276.jpeg?auto=compress&cs=tinysrgb&w=800 "
+                    }
                     alt={"a"}
                     className="w-full h-full object-cover"
                   />
@@ -687,19 +771,219 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="absolute top-4 left-4">
-                    <Badge className="bg-emerald-500 text-black hover:bg-emerald-600">
+                    <Badge className="bg-emerald-500 text-black hover:bg-emerald-600 px-4 py-2 rounded-lg">
                       🎥 VIDEO TESTIMONI
                     </Badge>
                   </div>
                 </div>
 
                 {/* Content */}
+                <div className="p-8 lg:p-12 flex flex-col justify-center">
+                  <div className="inline-block mb-4">
+                    <Badge className="bg-cyan-500/10 text-cyan-400 border-cyan-500/20 text-sm px-4 py-1 rounded-xl">
+                      Career Switch dalam 8 Bulan
+                    </Badge>
+                    <blockquote className="text-2xl text-white font-semibold mt-6 mb-6 leading-relaxed">
+                      "Dalam 8 bulan, saya berhasil transition dari web
+                      developer menjadi senior Unity developer. GameDevAcademy
+                      memberikan structured learning path dan mentorship yang
+                      saya butuhkan."
+                    </blockquote>
+                    <div className="flex items-center space-x-4">
+                      <div>
+                        <div className="text-white font-bold text-xl">
+                          Ahmad Fadli
+                        </div>
+                        <div className="text-cyan-400 font-medium">
+                          Senior Unity Developer
+                        </div>
+                        <div className="text-gray-400 text-sm">Kummara</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </Card>
           </div>
 
           {/* Success Story Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
+            <div className="bg-gray-800 border border-gray-700 overflow-hidden group hover:border-cyan-500/50 transition-all hover:shadow-2xl hover:shadow-cyan-500/20 rounded-lg">
+              <div className="relative overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/716276/pexels-photo-716276.jpeg?auto=compress&cs=tinysrgb&w=800 "
+                  alt="image-course"
+                  className="w-full h-92 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+
+                <div className="absolute bottom-2 left-1">
+                  <div className="px-4 space-y-1">
+                    <h4 className="text-white text-3xl">Andi Wijaya</h4>
+                    <p className="text-cyan-500">Senior Unity Instructor</p>
+                    <p className="text-white">
+                      Unity Development & Mobile Games
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="py-5 px-4 space-y-2">
+                <p className="text-gray-400">
+                  Master Unity engine dari dasar hingga advanced. Buat game 2D
+                  dan 3D dengan C# scripting, physics, dan game mechanics.
+                </p>
+              </div>
+            </div>
+            <div className="bg-gray-800 border border-gray-700 overflow-hidden group hover:border-cyan-500/50 transition-all hover:shadow-2xl hover:shadow-cyan-500/20 rounded-lg">
+              <div className="relative overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/716276/pexels-photo-716276.jpeg?auto=compress&cs=tinysrgb&w=800 "
+                  alt="image-course"
+                  className="w-full h-92 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+
+                <div className="absolute bottom-2 left-1">
+                  <div className="px-4 space-y-1">
+                    <h4 className="text-white text-3xl">Andi Wijaya</h4>
+                    <p className="text-cyan-500">Senior Unity Instructor</p>
+                    <p className="text-white">
+                      Unity Development & Mobile Games
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="py-5 px-4 space-y-2">
+                <p className="text-gray-400">
+                  Master Unity engine dari dasar hingga advanced. Buat game 2D
+                  dan 3D dengan C# scripting, physics, dan game mechanics.
+                </p>
+              </div>
+            </div>
+            <div className="bg-gray-800 border border-gray-700 overflow-hidden group hover:border-cyan-500/50 transition-all hover:shadow-2xl hover:shadow-cyan-500/20 rounded-lg">
+              <div className="relative overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/716276/pexels-photo-716276.jpeg?auto=compress&cs=tinysrgb&w=800 "
+                  alt="image-course"
+                  className="w-full h-92 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+
+                <div className="absolute bottom-2 left-1">
+                  <div className="px-4 space-y-1">
+                    <h4 className="text-white text-3xl">Andi Wijaya</h4>
+                    <p className="text-cyan-500">Senior Unity Instructor</p>
+                    <p className="text-white">
+                      Unity Development & Mobile Games
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="py-5 px-4 space-y-2">
+                <p className="text-gray-400">
+                  Master Unity engine dari dasar hingga advanced. Buat game 2D
+                  dan 3D dengan C# scripting, physics, dan game mechanics.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Blog Section */}
+      <section className="py-20 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-block px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full mb-4">
+              <span className="text-amber-400 text-sm font-semibold">BLOG</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Artikel &{" "}
+              <span className="bg-clip-text bg-gradient-to-r text-cyan-400">
+                Tutorial
+              </span>
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Insights, tips, dan tutorial terbaru tentang game development dari
+              expert kami
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
+            <div className="bg-gray-800 border border-gray-700 overflow-hidden group hover:border-cyan-500/50 transition-all hover:shadow-2xl hover:shadow-cyan-500/20 rounded-lg">
+              <div className="relative overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/716276/pexels-photo-716276.jpeg?auto=compress&cs=tinysrgb&w=800 "
+                  alt="image-course"
+                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+              </div>
+
+              <div className="py-5 px-4 space-y-2">
+                <h1 className="text-white font-bold text-xl">
+                  10 Tips Memulai Karir Sebagai Game Developer di 2024
+                </h1>
+                <p className="text-gray-400">
+                  Master Unity engine dari dasar hingga advanced. Buat game 2D
+                  dan 3D dengan C# scripting, physics, dan game mechanics.
+                </p>
+              </div>
+              <div className="flex justify-between py-6 px-4">
+                <div className="text-gray-400 text-sm">By : Admin</div>
+                <div className="text-gray-400 text-sm">12/12/2026</div>
+              </div>
+            </div>
+            <div className="bg-gray-800 border border-gray-700 overflow-hidden group hover:border-cyan-500/50 transition-all hover:shadow-2xl hover:shadow-cyan-500/20 rounded-lg">
+              <div className="relative overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/716276/pexels-photo-716276.jpeg?auto=compress&cs=tinysrgb&w=800 "
+                  alt="image-course"
+                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+              </div>
+
+              <div className="py-5 px-4 space-y-2">
+                <h1 className="text-white font-bold text-xl">
+                  10 Tips Memulai Karir Sebagai Game Developer di 2024
+                </h1>
+                <p className="text-gray-400">
+                  Master Unity engine dari dasar hingga advanced. Buat game 2D
+                  dan 3D dengan C# scripting, physics, dan game mechanics.
+                </p>
+              </div>
+              <div className="flex justify-between py-6 px-4">
+                <div className="text-gray-400 text-sm">By : Admin</div>
+                <div className="text-gray-400 text-sm">12/12/2026</div>
+              </div>
+            </div>
+            <div className="bg-gray-800 border border-gray-700 overflow-hidden group hover:border-cyan-500/50 transition-all hover:shadow-2xl hover:shadow-cyan-500/20 rounded-lg">
+              <div className="relative overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/716276/pexels-photo-716276.jpeg?auto=compress&cs=tinysrgb&w=800 "
+                  alt="image-course"
+                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+              </div>
+
+              <div className="py-5 px-4 space-y-2">
+                <h1 className="text-white font-bold text-xl">
+                  10 Tips Memulai Karir Sebagai Game Developer di 2024
+                </h1>
+                <p className="text-gray-400">
+                  Master Unity engine dari dasar hingga advanced. Buat game 2D
+                  dan 3D dengan C# scripting, physics, dan game mechanics.
+                </p>
+              </div>
+              <div className="flex justify-between py-6 px-4">
+                <div className="text-gray-400 text-sm">By : Admin</div>
+                <div className="text-gray-400 text-sm">12/12/2026</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       {/* CTA Banner Section */}
@@ -716,16 +1000,13 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Link href="/">
-                  <Button className="bg-black text-white hover:bg-gray-900 font-semibold text-lg px-8 h-14 group">
+                  <Button className="bg-black flex gap-2 text-white hover:bg-gray-900 font-semibold text-lg px-6 py-4 rounded-lg group">
                     Jelajahi Semua Kursus
                     <TrendingUp className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <Link href="/">
-                  <Button
-                    variant="outline"
-                    className="border-2 border-black text-black hover:bg-black hover:text-white font-semibold text-lg px-8 h-14"
-                  >
+                  <Button className="text-black hover:border-2 hover:border-black font-bold text-lg px-8 py-3.5 rounded-lg">
                     Konsultasi Gratis
                   </Button>
                 </Link>
@@ -804,7 +1085,65 @@ export default function Home() {
             </div>
 
             {/* Right Form */}
-            <div></div>
+            <div className="bg-gray-800 border-gray-700 px-8 rounded-lg">
+              <div className="py-8">
+                <h1 className="text-white text-2xl">Kirim Pesan</h1>
+                <p className="text-gray-400">
+                  Isi form di bawah dan kami akan menghubungi Anda segera
+                </p>
+              </div>
+              <div>
+                <form className="space-y-4">
+                  <div>
+                    <label className="text-white text-sm font-medium mb-2 block">
+                      Nama Lengkap *
+                    </label>
+                    <div className="relative">
+                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Masukkan nama Anda"
+                        className="bg-gray-700 border-gray-600 text-white pl-10 focus:border-cyan-500 w-full py-2 rounded-lg"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-white text-sm font-medium mb-2 block">
+                      Email *
+                    </label>
+                    <div className="relative">
+                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="nama@email.com"
+                        className="bg-gray-700 border-gray-600 text-white pl-10 focus:border-cyan-500 w-full py-2 rounded-lg"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-white text-sm font-medium mb-2 block">
+                      Pesan *
+                    </label>
+                    <div className="relative">
+                      <MessageSquare className="absolute left-3 top-3 text-gray-400 w-5 h-5" />
+                      <textarea
+                        name="message"
+                        placeholder="Ceritakan apa yang ingin Anda ketahui..."
+                        className="bg-gray-700 border-gray-600 text-white pl-10 focus:border-cyan-500 w-full py-2 rounded-lg"
+                      />
+                    </div>
+                  </div>
+                  <Button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-black hover:from-cyan-600 hover:to-emerald-600 font-semibold h-12"
+                  >
+                    Kirim Pesan
+                  </Button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </section>
