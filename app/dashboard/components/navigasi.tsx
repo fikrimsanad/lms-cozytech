@@ -22,7 +22,7 @@ function navigasi() {
               <div className="self-stretch my-auto text-lg">Dashboard</div>
             </Link>
             <Link
-              href={"/dashboard/pages/myclass"}
+              href={"/dashboard/kelas-saya"}
               className="flex w-full items-center gap-[18px] overflow-hidden whitespace-nowrap px-6 py-3  hover:bg-gray-50 hover:text-black hover:cursor-pointer transition-colors rounded-md"
             >
               <img
@@ -35,7 +35,7 @@ function navigasi() {
               <div className="self-stretch my-auto text-lg">Kelas Saya</div>
             </Link>
             <Link
-              href={"/dashboard/pages/browse-class"}
+              href={"/dashboard/cari-kelas"}
               className="flex w-full items-center gap-[18px] overflow-hidden whitespace-nowrap px-6 py-3  hover:bg-gray-50 hover:text-black hover:cursor-pointer transition-colors rounded-md"
             >
               <img
@@ -48,7 +48,7 @@ function navigasi() {
               <div className="self-stretch my-auto text-lg">Cari Kelas</div>
             </Link>
             <Link
-              href={"/dashboard/pages/certification"}
+              href={"/dashboard/sertifikasi"}
               className="flex w-full items-center gap-[18px] overflow-hidden whitespace-nowrap px-6 py-3  hover:bg-gray-50 hover:text-black hover:cursor-pointer transition-colors rounded-md"
             >
               <img
@@ -61,7 +61,7 @@ function navigasi() {
               <div className="self-stretch my-auto text-lg">Sertifikasi</div>
             </Link>
             <Link
-              href={"/dashboard/pages/membership"}
+              href={"/dashboard/komunitas"}
               className="flex w-full items-center gap-[18px] overflow-hidden whitespace-nowrap px-6 py-3  hover:bg-gray-50 hover:text-black hover:cursor-pointer transition-colors rounded-md"
             >
               <img
@@ -74,7 +74,7 @@ function navigasi() {
               <div className="self-stretch my-auto text-lg">Keanggotaan</div>
             </Link>
             <Link
-              href={"/dashboard/pages/payment"}
+              href={"/dashboard/pembayaran"}
               className="flex w-full items-center gap-[18px] overflow-hidden whitespace-nowrap px-6 py-3  hover:bg-gray-50 hover:text-black hover:cursor-pointer transition-colors rounded-md"
             >
               <img
@@ -87,7 +87,7 @@ function navigasi() {
               <div className="self-stretch my-auto text-lg">Pembayaran</div>
             </Link>
             <Link
-              href={"/dashboard/pages/setting"}
+              href={"/dashboard/pengaturan"}
               className="flex w-full items-center gap-[18px] overflow-hidden whitespace-nowrap px-6 py-3  hover:bg-gray-50 hover:text-black hover:cursor-pointer transition-colors rounded-md"
             >
               <img
