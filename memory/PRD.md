@@ -60,7 +60,11 @@ Restructure Next.js App Router LMS project for game development learning platfor
 ### P0 (Critical)
 - [x] Folder restructuring
 - [x] Authentication (NextAuth Credentials: admin@mail.com / user@mail.com, password 123456)
-- [x] Login→Dashboard/Admin connection: role-based redirect, session name/email/role, logout
+- [x] Admin Dashboard 3 Tab: Kegiatan Belajar, Transaksi, Marketing
+- [x] Admin Buat Kelas Stepper 3 tahap (Informasi → Video → File)
+- [x] Admin Marketing Page (Form Blog + Form Testimoni)
+- [x] Admin Transaksi sortable table
+- [x] User Video Player + Playlist sidebar
 - [x] API routes with CRUD
 - [x] Middleware route protection
 - [x] Database seed data
