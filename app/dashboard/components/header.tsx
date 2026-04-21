@@ -1,49 +1,67 @@
-import React from "react";
+"use client";
 
-function header() {
+import { useSession, signOut } from "next-auth/react";
+import { LogOut, Bell, MessageSquare, ChevronDown } from "lucide-react";
+import { useState } from "react";
+
+export default function Header() {
+  const { data: session } = useSession();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const userName = session?.user?.name || "User";
+  const userEmail = session?.user?.email || "";
+  const userRole = (session?.user as { role?: string })?.role || "student";
+
   return (
-    <div>
-      <div className="bg-white w-full h-16 border-b-1 bg border-slate-50 sticky top-0">
-        <div className="bg-[rgba(253,253,253,1)] flex justify-end items-center gap-[17px] text-lg text-[rgba(51,51,51,1)] font-bold flex-wrap grow shrink basis-auto pl-20">
-          <div className="space-x-4">
-            <button className="hover:opacity-80 transition-opacity">
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/16bc1f79067044f626c2de2ddb06af5077ec17bc?placeholderIfAbsent=true"
-                className="aspect-[1] object-contain w-[32px] self-stretch shrink-0 my-auto rounded-[50px]"
-                alt="Notification"
-              />
+    <div data-testid="dashboard-header">
+      <div className="bg-white w-full h-16 border-b border-slate-100 sticky top-0 z-10">
+        <div className="flex justify-end items-center h-full gap-4 px-6">
+          {/* Notifications */}
+          <div className="flex items-center gap-2">
+            <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors" data-testid="header-notification-btn">
+              <Bell className="w-5 h-5 text-gray-500" />
             </button>
-            <button className="hover:opacity-80 transition-opacity">
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/8a03b43d0ed7e325f28c4226717eb94a49ed2682?placeholderIfAbsent=true"
-                className="aspect-[1] object-contain w-[32px] self-stretch shrink-0 my-auto rounded-[50px]"
-                alt="Messages"
-              />
+            <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors" data-testid="header-message-btn">
+              <MessageSquare className="w-5 h-5 text-gray-500" />
             </button>
           </div>
-          <div className="bg-[rgba(249,249,249,1)] self-stretch flex items-stretch gap-[40px_100px] px-[30px] py-4 max-md:px-5">
-            <div className="flex items-stretch gap-[17px]">
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/835fd69a752d2769b64c8afb2e2638aa8b6e90eb?placeholderIfAbsent=true"
-                className="aspect-[1] object-contain w-9 shrink-0 rounded-[50%]"
-                alt="Profile"
-              />
-              <div className="basis-auto my-auto text-sm font-medium">
-                <h4>Fikri M</h4>
+
+          {/* User Profile Dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className="flex items-center gap-3 bg-gray-50 hover:bg-gray-100 pl-4 pr-3 py-2 rounded-lg transition-colors"
+              data-testid="header-profile-btn"
+            >
+              <div className="w-8 h-8 bg-zinc-900 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                {userName.charAt(0).toUpperCase()}
               </div>
-            </div>
-            <button className="hover:opacity-80 transition-opacity">
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/ea283bb0b874f7ce9e43e260d2e8146c6a71ca35?placeholderIfAbsent=true"
-                className="aspect-[1] object-contain w-5 shrink-0 my-auto"
-                alt="Dropdown"
-              />
+              <div className="text-left">
+                <p className="text-sm font-semibold text-gray-900" data-testid="header-user-name">{userName}</p>
+                <p className="text-xs text-gray-500 capitalize">{userRole}</p>
+              </div>
+              <ChevronDown className="w-4 h-4 text-gray-400" />
             </button>
+
+            {dropdownOpen && (
+              <div className="absolute right-0 top-full mt-2 w-56 bg-white border border-gray-200 rounded-xl shadow-lg py-2 z-50">
+                <div className="px-4 py-2 border-b border-gray-100">
+                  <p className="text-sm font-semibold text-gray-900">{userName}</p>
+                  <p className="text-xs text-gray-500">{userEmail}</p>
+                </div>
+                <button
+                  onClick={() => signOut({ callbackUrl: "/login" })}
+                  className="flex items-center gap-2 w-full px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                  data-testid="header-logout-btn"
+                >
+                  <LogOut className="w-4 h-4" />
+                  Keluar
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-export default header;

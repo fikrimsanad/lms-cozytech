@@ -1,110 +1,94 @@
-import Link from "next/link";
-import React from "react";
+"use client";
 
-function navigasi() {
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useSession, signOut } from "next-auth/react";
+import {
+  LayoutDashboard,
+  BookOpen,
+  Search,
+  Award,
+  Users,
+  CreditCard,
+  Settings,
+  LogOut,
+} from "lucide-react";
+
+const menuItems = [
+  { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/dashboard/kelas-saya", label: "Kelas Saya", icon: BookOpen },
+  { href: "/dashboard/cari-kelas", label: "Cari Kelas", icon: Search },
+  { href: "/dashboard/sertifikasi", label: "Sertifikasi", icon: Award },
+  { href: "/dashboard/komunitas", label: "Keanggotaan", icon: Users },
+  { href: "/dashboard/pembayaran", label: "Pembayaran", icon: CreditCard },
+  { href: "/dashboard/pengaturan", label: "Pengaturan", icon: Settings },
+];
+
+export default function Navigation() {
+  const pathname = usePathname();
+  const { data: session } = useSession();
+  const userName = session?.user?.name || "User";
+
   return (
-    <div>
-      <nav className="w-full max-md:w-full max-md:ml-0">
-        <div className="flex grow items-stretch gap-3 text-lg text-[rgba(186,186,186,1)] font-medium">
-          <div className="bg-white w-full overflow-hidden mt-[5px] pl-2 space-y-4">
-            <div className=" py-8  w-full"></div>
+    <nav className="w-full h-full bg-white flex flex-col" data-testid="dashboard-sidebar">
+      {/* Logo */}
+      <div className="py-6 px-5">
+        <Link href="/" className="text-lg font-bold">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-emerald-500">
+            CozyTech
+          </span>
+          <span className="text-gray-400 font-light ml-1">LMS</span>
+        </Link>
+      </div>
+
+      {/* Menu */}
+      <div className="flex-1 px-3 space-y-1">
+        {menuItems.map((item) => {
+          const isActive =
+            item.href === "/dashboard"
+              ? pathname === "/dashboard"
+              : pathname.startsWith(item.href);
+          const Icon = item.icon;
+          return (
             <Link
-              href={"/dashboard/"}
-              className="flex w-full items-center gap-[18px] overflow-hidden whitespace-nowrap px-6 py-3  hover:bg-gray-50 hover:text-black hover:cursor-pointer transition-colors rounded-md"
+              key={item.href}
+              href={item.href}
+              className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                isActive
+                  ? "bg-zinc-900 text-white"
+                  : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+              }`}
+              data-testid={`sidebar-${item.label.toLowerCase().replace(/\s/g, "-")}`}
             >
-              <img
-                src={
-                  "https://api.builder.io/api/v1/image/assets/TEMP/8370f074bd03c4710006f2bf2e003011aa92985c?placeholderIfAbsent=true"
-                }
-                className="aspect-[1] object-contain w-[30px] self-stretch shrink-0 my-auto"
-                alt={""}
-              />
-              <div className="self-stretch my-auto text-lg">Dashboard</div>
+              <Icon className="w-5 h-5" />
+              {item.label}
             </Link>
-            <Link
-              href={"/dashboard/kelas-saya"}
-              className="flex w-full items-center gap-[18px] overflow-hidden whitespace-nowrap px-6 py-3  hover:bg-gray-50 hover:text-black hover:cursor-pointer transition-colors rounded-md"
-            >
-              <img
-                src={
-                  "https://api.builder.io/api/v1/image/assets/TEMP/f30331b34e2f521e939f97d2fd60930437fcf09f?placeholderIfAbsent=true"
-                }
-                className="aspect-[1] object-contain w-[30px] self-stretch shrink-0 my-auto"
-                alt={""}
-              />
-              <div className="self-stretch my-auto text-lg">Kelas Saya</div>
-            </Link>
-            <Link
-              href={"/dashboard/cari-kelas"}
-              className="flex w-full items-center gap-[18px] overflow-hidden whitespace-nowrap px-6 py-3  hover:bg-gray-50 hover:text-black hover:cursor-pointer transition-colors rounded-md"
-            >
-              <img
-                src={
-                  "https://api.builder.io/api/v1/image/assets/TEMP/6d81f51e56983843d1a02056035be33cf05f8c22?placeholderIfAbsent=true"
-                }
-                className="aspect-[1] object-contain w-[30px] self-stretch shrink-0 my-auto"
-                alt={""}
-              />
-              <div className="self-stretch my-auto text-lg">Cari Kelas</div>
-            </Link>
-            <Link
-              href={"/dashboard/sertifikasi"}
-              className="flex w-full items-center gap-[18px] overflow-hidden whitespace-nowrap px-6 py-3  hover:bg-gray-50 hover:text-black hover:cursor-pointer transition-colors rounded-md"
-            >
-              <img
-                src={
-                  "https://api.builder.io/api/v1/image/assets/TEMP/fc7273fca74b0d9a8ace7594ef8473a0297ba366?placeholderIfAbsent=true"
-                }
-                className="aspect-[1] object-contain w-[30px] self-stretch shrink-0 my-auto"
-                alt={""}
-              />
-              <div className="self-stretch my-auto text-lg">Sertifikasi</div>
-            </Link>
-            <Link
-              href={"/dashboard/komunitas"}
-              className="flex w-full items-center gap-[18px] overflow-hidden whitespace-nowrap px-6 py-3  hover:bg-gray-50 hover:text-black hover:cursor-pointer transition-colors rounded-md"
-            >
-              <img
-                src={
-                  "https://api.builder.io/api/v1/image/assets/TEMP/88034362f9da3bb38dd1bd04a3d3c457bdd4e1d4?placeholderIfAbsent=true"
-                }
-                className="aspect-[1] object-contain w-[30px] self-stretch shrink-0 my-auto"
-                alt={""}
-              />
-              <div className="self-stretch my-auto text-lg">Keanggotaan</div>
-            </Link>
-            <Link
-              href={"/dashboard/pembayaran"}
-              className="flex w-full items-center gap-[18px] overflow-hidden whitespace-nowrap px-6 py-3  hover:bg-gray-50 hover:text-black hover:cursor-pointer transition-colors rounded-md"
-            >
-              <img
-                src={
-                  "https://api.builder.io/api/v1/image/assets/TEMP/470e8fe54016c2c5d358f42e59453b9776b2fc89?placeholderIfAbsent=true"
-                }
-                className="aspect-[1] object-contain w-[30px] self-stretch shrink-0 my-auto"
-                alt={""}
-              />
-              <div className="self-stretch my-auto text-lg">Pembayaran</div>
-            </Link>
-            <Link
-              href={"/dashboard/pengaturan"}
-              className="flex w-full items-center gap-[18px] overflow-hidden whitespace-nowrap px-6 py-3  hover:bg-gray-50 hover:text-black hover:cursor-pointer transition-colors rounded-md"
-            >
-              <img
-                src={
-                  "https://api.builder.io/api/v1/image/assets/TEMP/5bb298cba5e76159c689ee1ee677479e6d1269e2?placeholderIfAbsent=true"
-                }
-                className="aspect-[1] object-contain w-[30px] self-stretch shrink-0 my-auto"
-                alt={""}
-              />
-              <div className="self-stretch my-auto text-lg">Pengaturan</div>
-            </Link>
+          );
+        })}
+      </div>
+
+      {/* User + Logout */}
+      <div className="px-3 pb-4 space-y-2 border-t border-gray-100 pt-4">
+        <div className="flex items-center gap-3 px-4 py-2">
+          <div className="w-8 h-8 bg-zinc-900 rounded-full flex items-center justify-center text-white text-sm font-bold">
+            {userName.charAt(0).toUpperCase()}
           </div>
-          <div className="bg-[rgba(238,238,238,1)] flex w-px shrink-0 h-[767px]"></div>
+          <div>
+            <p className="text-sm font-semibold text-gray-900" data-testid="sidebar-user-name">{userName}</p>
+            <p className="text-xs text-gray-400 capitalize">
+              {(session?.user as { role?: string })?.role || "student"}
+            </p>
+          </div>
         </div>
-      </nav>
-    </div>
+        <button
+          onClick={() => signOut({ callbackUrl: "/login" })}
+          className="flex items-center gap-3 w-full px-4 py-2.5 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50 transition-colors"
+          data-testid="sidebar-logout-btn"
+        >
+          <LogOut className="w-5 h-5" />
+          Keluar
+        </button>
+      </div>
+    </nav>
   );
 }
-
-export default navigasi;
