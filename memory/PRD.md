@@ -63,6 +63,11 @@ Restructure Next.js App Router LMS project for game development learning platfor
 - [x] API routes with CRUD
 - [x] Middleware route protection
 - [x] Database seed data
+- [x] Navigation menu (Navbar + Footer) on landing pages
+- [x] Halaman Daftar Kelas (/kelas)
+- [x] Halaman Blog (/blog)
+- [x] Halaman About (/tentang)
+- [x] Halaman Kontak (/kontak)
 
 ### P1 (Important)
 - [ ] Dashboard: Display actual user name from session
