@@ -1,5 +1,3 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import Link from "next/link";
 import { Button } from "@radix-ui/themes/components/button";
 import {
@@ -23,12 +21,13 @@ import {
 } from "lucide-react";
 import { Card } from "@radix-ui/themes/components/card";
 import { Badge } from "@radix-ui/themes/components/badge";
-import { Input } from "postcss";
-import { url } from "inspector";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-black">
+      <Navbar />
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
@@ -592,7 +591,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12 flex justify-center">
-            <Link href="/">
+            <Link href="/kelas">
               <Button
                 variant="outline"
                 className="border-2 flex gap-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black font-semibold px-8 py-2 rounded-sm"
@@ -999,13 +998,13 @@ export default function Home() {
                 mereka menjadi karir impian di industri game development
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link href="/">
+                <Link href="/kelas">
                   <Button className="bg-black flex gap-2 text-white hover:bg-gray-900 font-semibold text-lg px-6 py-4 rounded-lg group">
                     Jelajahi Semua Kursus
                     <TrendingUp className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <Link href="/">
+                <Link href="/kontak">
                   <Button className="text-black hover:border-2 hover:border-black font-bold text-lg px-8 py-3.5 rounded-lg">
                     Konsultasi Gratis
                   </Button>
@@ -1147,6 +1146,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
