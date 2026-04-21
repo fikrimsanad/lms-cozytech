@@ -1,15 +1,10 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import GoogleProvider from "next-auth/providers/google";
 import { connectToDatabase } from "@/lib/mongodb";
 import bcrypt from "bcryptjs";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID ?? "",
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
-    }),
     CredentialsProvider({
       name: "credentials",
       credentials: {
@@ -43,7 +38,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           id: user._id.toString(),
           name: user.name,
           email: user.email,
-          image: user.image || null,
           role: user.role,
         };
       },
@@ -52,38 +46,21 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.role = (user as { role?: string }).role || "user";
+        token.name = user.name;
+        token.email = user.email;
+        token.role = (user as { role?: string }).role;
         token.id = user.id;
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
+        session.user.name = token.name as string;
+        session.user.email = token.email as string;
         (session.user as { role?: string }).role = token.role as string;
         (session.user as { id?: string }).id = token.id as string;
       }
       return session;
-    },
-    async signIn({ user, account }) {
-      if (account?.provider === "google") {
-        const { db } = await connectToDatabase();
-        const existingUser = await db.collection("users").findOne({
-          email: user.email?.toLowerCase(),
-        });
-
-        if (!existingUser) {
-          await db.collection("users").insertOne({
-            name: user.name,
-            email: user.email?.toLowerCase(),
-            image: user.image,
-            role: "user",
-            provider: "google",
-            createdAt: new Date(),
-            updatedAt: new Date(),
-          });
-        }
-      }
-      return true;
     },
   },
   pages: {
