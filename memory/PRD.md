@@ -59,7 +59,7 @@ Restructure Next.js App Router LMS project for game development learning platfor
 ## Prioritized Backlog
 ### P0 (Critical)
 - [x] Folder restructuring
-- [x] Authentication (NextAuth)
+- [x] Authentication (NextAuth Credentials: admin@mail.com / user@mail.com, password 123456)
 - [x] API routes with CRUD
 - [x] Middleware route protection
 - [x] Database seed data
