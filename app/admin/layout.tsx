@@ -8,7 +8,7 @@ import {
   CreditCard,
   Users,
   LogOut,
-  Settings,
+  Megaphone,
 } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 
@@ -17,6 +17,7 @@ const adminMenuItems = [
   { href: "/admin/kelas", label: "Kelas", icon: BookOpen },
   { href: "/admin/transaksi", label: "Transaksi", icon: CreditCard },
   { href: "/admin/peserta", label: "Peserta", icon: Users },
+  { href: "/admin/marketing", label: "Marketing", icon: Megaphone },
 ];
 
 export default function AdminLayout({
