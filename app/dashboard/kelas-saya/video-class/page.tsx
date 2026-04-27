@@ -61,7 +61,7 @@ export default function VideoClassPage() {
         </div>
       </div>
 
-      <div className="flex overflow-hidden" style={{ height: "420px" }}>
+      <div className="flex flex-col lg:flex-row overflow-hidden" style={{ height: "420px" }}>
         {/* Video Player */}
         <div className="flex-1 flex flex-col">
           <div className="relative bg-black flex-1 flex items-center justify-center cursor-pointer group" onClick={() => setPlaying(!playing)}>
@@ -86,7 +86,7 @@ export default function VideoClassPage() {
 
         {/* Playlist Sidebar */}
         {sidebarOpen && (
-          <div className="w-72 bg-white border-l border-gray-200 overflow-y-auto shrink-0" data-testid="video-playlist">
+          <div className="w-full lg:w-72 bg-white border-t lg:border-t-0 lg:border-l border-gray-200 overflow-y-auto shrink-0 max-h-60 lg:max-h-none" data-testid="video-playlist">
             <div className="px-4 py-3 border-b border-gray-100 sticky top-0 bg-white z-10">
               <h3 className="text-sm font-semibold text-gray-900">Daftar Video</h3>
               <p className="text-xs text-gray-400 mt-0.5">{completedCount} dari {videoList.length} selesai</p>

@@ -47,7 +47,7 @@ export default function DetailPesertaPage() {
       </div>
 
       {/* Keaktifan Stats */}
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <div className="bg-white border border-gray-200 rounded-xl p-4 text-center"><BookOpen className="w-6 h-6 text-blue-600 mx-auto mb-2" /><p className="text-2xl font-bold text-gray-900">{peserta.totalKelas}</p><p className="text-xs text-gray-500">Kelas Diikuti</p></div>
         <div className="bg-white border border-gray-200 rounded-xl p-4 text-center"><Users className="w-6 h-6 text-emerald-600 mx-auto mb-2" /><p className="text-2xl font-bold text-gray-900">{totalLiveHadir}/{totalLive}</p><p className="text-xs text-gray-500">Kehadiran Live</p></div>
         <div className="bg-white border border-gray-200 rounded-xl p-4 text-center"><Play className="w-6 h-6 text-purple-600 mx-auto mb-2" /><p className="text-2xl font-bold text-gray-900">{peserta.totalVideo}</p><p className="text-xs text-gray-500">Video Ditonton</p></div>

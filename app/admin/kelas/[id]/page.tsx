@@ -39,7 +39,7 @@ export default function AdminDetailKelasPage() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <div className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3"><div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center"><Users className="w-5 h-5 text-blue-600" /></div><div><p className="text-xs text-gray-500">Peserta</p><p className="text-xl font-bold text-gray-900">{kelasData.totalPeserta}</p></div></div>
         <div className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3"><div className="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center"><Play className="w-5 h-5 text-purple-600" /></div><div><p className="text-xs text-gray-500">Video</p><p className="text-xl font-bold text-gray-900">{kelasData.totalVideo}</p></div></div>
         <div className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3"><div className="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center"><Calendar className="w-5 h-5 text-emerald-600" /></div><div><p className="text-xs text-gray-500">Live Session</p><p className="text-xl font-bold text-gray-900">{kelasData.totalLive}</p></div></div>

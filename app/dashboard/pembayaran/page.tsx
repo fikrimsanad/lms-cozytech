@@ -58,7 +58,7 @@ export default function PembayaranPage() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="bg-white border border-gray-200 rounded-xl p-5 flex items-center gap-4">
           <div className="w-11 h-11 bg-emerald-50 rounded-xl flex items-center justify-center"><CreditCard className="w-5 h-5 text-emerald-600" /></div>
           <div><p className="text-xs text-gray-500">Total Pembayaran</p><p className="text-xl font-bold text-gray-900">Rp {totalBayar.toLocaleString("id-ID")}</p></div>
@@ -101,7 +101,7 @@ export default function PembayaranPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+      <div className="overflow-x-auto bg-white border border-gray-200 rounded-xl">
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-gray-50 border-b border-gray-200">

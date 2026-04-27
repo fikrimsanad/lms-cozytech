@@ -11,7 +11,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Stats Row — 5 cards horizontal scroll style */}
-      <div className="grid grid-cols-5 gap-3">
+      <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
         <Link href="/dashboard/kelas-saya" className="group relative bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl p-4 overflow-hidden hover:scale-[1.02] transition-all">
           <div className="absolute top-0 right-0 w-20 h-20 bg-blue-500/10 rounded-full -translate-y-4 translate-x-4" />
           <BookOpen className="w-5 h-5 text-blue-400 mb-3" />
@@ -45,10 +45,10 @@ export default function DashboardPage() {
       </div>
 
       {/* Main Cards Grid — PS5 Style */}
-      <div className="grid grid-cols-12 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
 
         {/* Card 1: Video Terakhir — Large featured card */}
-        <Link href="/dashboard/kelas-saya/video-class" className="col-span-7 group relative rounded-2xl overflow-hidden h-64 hover:scale-[1.01] transition-all" data-testid="card-last-video">
+        <Link href="/dashboard/kelas-saya/video-class" className="col-span-1 lg:col-span-7 group relative rounded-2xl overflow-hidden h-52 lg:h-64 hover:scale-[1.01] transition-all" data-testid="card-last-video">
           <img
             src="https://images.unsplash.com/photo-1698945298361-365595d400eb?crop=entropy&cs=srgb&fm=jpg&q=85&w=900"
             alt="Last video"
@@ -82,7 +82,7 @@ export default function DashboardPage() {
         </Link>
 
         {/* Card 2: Jadwal Live Session Terdekat */}
-        <Link href="/dashboard/kelas-saya" className="col-span-5 group relative bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-500 rounded-2xl overflow-hidden h-64 p-5 flex flex-col justify-between hover:scale-[1.01] transition-all" data-testid="card-live-session">
+        <Link href="/dashboard/kelas-saya" className="col-span-1 lg:col-span-5 group relative bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-500 rounded-2xl overflow-hidden h-52 lg:h-64 p-5 flex flex-col justify-between hover:scale-[1.01] transition-all" data-testid="card-live-session">
           <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-10 translate-x-10" />
           <div className="absolute bottom-0 left-0 w-28 h-28 bg-white/5 rounded-full translate-y-8 -translate-x-8" />
           <div>
@@ -108,7 +108,7 @@ export default function DashboardPage() {
         </Link>
 
         {/* Card 3: Sertifikasi */}
-        <Link href="/dashboard/sertifikasi" className="col-span-4 group relative bg-gradient-to-br from-amber-500 via-orange-500 to-red-500 rounded-2xl overflow-hidden h-48 p-5 flex flex-col justify-between hover:scale-[1.01] transition-all" data-testid="card-sertifikasi">
+        <Link href="/dashboard/sertifikasi" className="col-span-1 lg:col-span-4 group relative bg-gradient-to-br from-amber-500 via-orange-500 to-red-500 rounded-2xl overflow-hidden h-48 p-5 flex flex-col justify-between hover:scale-[1.01] transition-all" data-testid="card-sertifikasi">
           <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-8 translate-x-8" />
           <div>
             <Award className="w-8 h-8 text-white/90 mb-2" />
@@ -127,7 +127,7 @@ export default function DashboardPage() {
         </Link>
 
         {/* Card 4: Komunitas */}
-        <Link href="/dashboard/komunitas" className="col-span-4 group relative bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-600 rounded-2xl overflow-hidden h-48 p-5 flex flex-col justify-between hover:scale-[1.01] transition-all" data-testid="card-komunitas">
+        <Link href="/dashboard/komunitas" className="col-span-1 lg:col-span-4 group relative bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-600 rounded-2xl overflow-hidden h-48 p-5 flex flex-col justify-between hover:scale-[1.01] transition-all" data-testid="card-komunitas">
           <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-8 translate-x-8" />
           <div>
             <Users className="w-8 h-8 text-white/90 mb-2" />
@@ -146,7 +146,7 @@ export default function DashboardPage() {
         </Link>
 
         {/* Card 5: Cari Kelas Baru */}
-        <Link href="/dashboard/cari-kelas" className="col-span-4 group relative bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-500 rounded-2xl overflow-hidden h-48 p-5 flex flex-col justify-between hover:scale-[1.01] transition-all" data-testid="card-cari-kelas">
+        <Link href="/dashboard/cari-kelas" className="col-span-1 lg:col-span-4 group relative bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-500 rounded-2xl overflow-hidden h-48 p-5 flex flex-col justify-between hover:scale-[1.01] transition-all" data-testid="card-cari-kelas">
           <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-8 translate-x-8" />
           <div>
             <BookOpen className="w-8 h-8 text-white/90 mb-2" />

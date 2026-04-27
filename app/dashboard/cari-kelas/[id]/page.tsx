@@ -61,9 +61,9 @@ export default async function DetailKelasUserPage({ params }: { params: Promise<
         </div>
       </div>
 
-      <div className="grid grid-cols-12 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
         {/* Left Content */}
-        <div className="col-span-8 space-y-5">
+        <div className="lg:col-span-8 space-y-5">
           {/* Deskripsi */}
           <div className="bg-white border border-gray-100 rounded-2xl p-5">
             <h2 className="text-base font-bold text-gray-900 mb-2">Tentang Kelas</h2>
@@ -133,7 +133,7 @@ export default async function DetailKelasUserPage({ params }: { params: Promise<
         </div>
 
         {/* Right Sidebar — Sticky pricing */}
-        <div className="col-span-4">
+        <div className="lg:col-span-4">
           <div className="sticky top-20 space-y-4">
             <div className="bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl p-5 space-y-4">
               <div>

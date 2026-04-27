@@ -82,7 +82,7 @@ export default function KelasSayaPage() {
       {/* Section 2: Jadwal Live Session */}
       <div>
         <h2 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-3">Jadwal Live Session</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {jadwalLive.map((j, i) => {
             const isLive = j.status === "live" || isToday(j.tanggal);
             return (
@@ -135,9 +135,9 @@ export default function KelasSayaPage() {
         <div className="space-y-3">
           {kelasSaya.map(kelas => (
             <div key={kelas.id} className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:scale-[1.005] transition-all" data-testid={`kelas-saya-card-${kelas.id}`}>
-              <div className="flex">
+              <div className="flex flex-col sm:flex-row">
                 {/* Thumbnail */}
-                <div className="w-52 shrink-0 relative overflow-hidden">
+                <div className="w-full h-40 sm:w-52 sm:h-auto shrink-0 relative overflow-hidden">
                   <img src={kelas.thumbnail} alt={kelas.nama} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/10" />
                   {/* Progress overlay */}
