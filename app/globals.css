@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@source "../components";
+@source "../app";
+
+@theme {
+  --font-geist-sans: "Geist", sans-serif;
+  --font-geist-mono: "Geist Mono", monospace;
+}
