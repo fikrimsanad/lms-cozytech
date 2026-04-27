@@ -51,7 +51,7 @@ export default function CariKelasPage() {
       {/* Class Grid - PS5 Card Style */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {kelasList.map(kelas => (
-          <Link key={kelas.id} href={`/dashboard/kelas-saya/detail-class`} className="group relative bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:scale-[1.01] transition-all" data-testid={`kelas-card-${kelas.id}`}>
+          <Link key={kelas.id} href={`/dashboard/cari-kelas/${kelas.id}`} className="group relative bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:scale-[1.01] transition-all" data-testid={`kelas-card-${kelas.id}`}>
             {/* Thumbnail */}
             <div className="relative h-40 overflow-hidden">
               <img src={kelas.thumbnail} alt={kelas.nama} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
