@@ -71,8 +71,9 @@ export default function BlogPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {articles.map((article, i) => (
-              <article
+              <Link
                 key={i}
+                href={`/blog/${i + 1}`}
                 className="bg-gray-800 border border-gray-700 overflow-hidden group hover:border-cyan-500/50 transition-all hover:shadow-xl rounded-lg"
               >
                 <div className="relative overflow-hidden">
@@ -100,7 +101,7 @@ export default function BlogPage() {
                     </span>
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
