@@ -141,7 +141,7 @@ export default function KelasPage() {
                 </div>
                 <div className="py-4 px-4">
                   <Link
-                    href="/"
+                    href={`/kelas/${i + 1}`}
                     className="flex items-center justify-center gap-2 w-full py-2.5 bg-gradient-to-r from-cyan-500 to-emerald-500 text-black font-semibold rounded-lg hover:from-cyan-600 hover:to-emerald-600 transition-all text-sm"
                   >
                     Lihat Detail <ArrowRight className="w-4 h-4" />

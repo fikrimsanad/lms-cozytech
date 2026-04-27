@@ -1,99 +1,98 @@
-import React from "react";
 import Link from "next/link";
-import {
-  CirclePlay,
-  Clock8,
-  SquarePlay,
-  CircleDot,
-} from "lucide-react";
+import { ArrowLeft, Clock, Play, Users, Calendar, Star, CheckCircle, BookOpen } from "lucide-react";
 import { Progress } from "@radix-ui/themes/components/progress";
+
+const kelas = {
+  nama: "Kelas Brevet Pajak AB",
+  deskripsi: "Pendidikan perpajakan tingkat lanjut yang mencakup seluruh aspek perpajakan di Indonesia. Kelas ini mempersiapkan peserta untuk menghadapi ujian sertifikasi Brevet A dan B.",
+  pengajar: "Dr. Ahmad Setiawan",
+  durasi: "12 Minggu",
+  totalVideo: 24,
+  totalLive: 6,
+  peserta: 20,
+  progress: 65,
+  videoSelesai: 15,
+};
+
+const syllabus = [
+  { judul: "Ketentuan Umum Perpajakan (KUP A)", video: 4, selesai: true },
+  { judul: "PPN A: Perhitungan PPN", video: 5, selesai: true },
+  { judul: "PPh Pasal 21", video: 5, selesai: true },
+  { judul: "PPh Badan", video: 5, selesai: false },
+  { judul: "Ujian & Sertifikasi", video: 5, selesai: false },
+];
+
+const jadwalLive = [
+  { judul: "Ketentuan Umum Perpajakan KUP A", tanggal: "22 Nov 2025", waktu: "09:00 - 12:15", status: "selesai" },
+  { judul: "PPN A: Perhitungan PPN", tanggal: "29 Nov 2025", waktu: "09:00 - 12:15", status: "selesai" },
+  { judul: "PPh Pasal 21", tanggal: "6 Des 2025", waktu: "09:00 - 12:15", status: "selesai" },
+  { judul: "PPh Badan", tanggal: "13 Des 2025", waktu: "14:00 - 17:00", status: "akan datang" },
+  { judul: "Review & Latihan Soal", tanggal: "20 Des 2025", waktu: "09:00 - 12:15", status: "akan datang" },
+  { judul: "Ujian Sertifikasi", tanggal: "27 Des 2025", waktu: "09:00 - 12:00", status: "akan datang" },
+];
 
 export default function DetailClassPage() {
   return (
-    <div data-testid="detail-class-page">
-      <div className="flex w-full flex-col self-stretch items-stretch my-auto max-md:max-w-full max-md:mt-10">
-        <div className="py-8">
-          <Link href={"/dashboard/kelas-saya"}>Kembali</Link>
+    <div className="space-y-6" data-testid="detail-class-page">
+      <div className="flex items-center gap-3">
+        <Link href="/dashboard/kelas-saya" className="p-2 hover:bg-gray-100 rounded-lg"><ArrowLeft className="w-5 h-5 text-gray-500" /></Link>
+        <div><h1 className="text-2xl font-bold text-gray-900">{kelas.nama}</h1><p className="text-sm text-gray-500">{kelas.pengajar}</p></div>
+      </div>
+
+      {/* Stats */}
+      <div className="grid grid-cols-4 gap-4">
+        <div className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3"><div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center"><Play className="w-5 h-5 text-blue-600" /></div><div><p className="text-xs text-gray-500">Video</p><p className="text-lg font-bold text-gray-900">{kelas.videoSelesai}/{kelas.totalVideo}</p></div></div>
+        <div className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3"><div className="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center"><Calendar className="w-5 h-5 text-emerald-600" /></div><div><p className="text-xs text-gray-500">Live Session</p><p className="text-lg font-bold text-gray-900">{kelas.totalLive}</p></div></div>
+        <div className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3"><div className="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center"><Users className="w-5 h-5 text-purple-600" /></div><div><p className="text-xs text-gray-500">Peserta</p><p className="text-lg font-bold text-gray-900">{kelas.peserta}</p></div></div>
+        <div className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-3"><div className="w-10 h-10 bg-amber-50 rounded-lg flex items-center justify-center"><Clock className="w-5 h-5 text-amber-600" /></div><div><p className="text-xs text-gray-500">Durasi</p><p className="text-lg font-bold text-gray-900">{kelas.durasi}</p></div></div>
+      </div>
+
+      {/* Progress */}
+      <div className="bg-white border border-gray-200 rounded-xl p-5">
+        <div className="flex items-center justify-between mb-3"><h3 className="text-base font-semibold text-gray-900">Progress Anda</h3><span className="text-sm font-bold text-gray-900">{kelas.progress}%</span></div>
+        <div className="w-full h-2.5 bg-gray-100 rounded-full"><div className="h-2.5 bg-emerald-500 rounded-full transition-all" style={{ width: `${kelas.progress}%` }} /></div>
+      </div>
+
+      {/* Deskripsi */}
+      <div className="bg-white border border-gray-200 rounded-xl p-5">
+        <h3 className="text-base font-semibold text-gray-900 mb-2">Tentang Kelas</h3>
+        <p className="text-sm text-gray-600 leading-relaxed">{kelas.deskripsi}</p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Silabus */}
+        <div className="bg-white border border-gray-200 rounded-xl p-5">
+          <h3 className="text-base font-semibold text-gray-900 mb-4">Silabus</h3>
+          <div className="space-y-2">
+            {syllabus.map((s, i) => (
+              <div key={i} className={`flex items-center justify-between px-4 py-3 rounded-lg ${s.selesai ? "bg-emerald-50" : "bg-gray-50"}`}>
+                <div className="flex items-center gap-3">
+                  {s.selesai ? <CheckCircle className="w-5 h-5 text-emerald-500" /> : <BookOpen className="w-5 h-5 text-gray-400" />}
+                  <span className={`text-sm font-medium ${s.selesai ? "text-emerald-800" : "text-gray-700"}`}>{s.judul}</span>
+                </div>
+                <span className="text-xs text-gray-500">{s.video} video</span>
+              </div>
+            ))}
+          </div>
+          <Link href="/dashboard/kelas-saya/video-class" className="block w-full mt-4 py-2.5 bg-zinc-900 text-white text-sm text-center rounded-lg hover:bg-zinc-800 transition-colors">Lanjut Belajar</Link>
         </div>
-        <section className="flex items-stretch text-2xl font-bold mb-8">
-          <div className=" space-y-3">
-            <h3 className="text-black text-3xl">Kelas Brevet Pajak AB</h3>
-            <p className="text-zinc-500 text-sm font-bold">
-              Pendidikan perpajakan tingkat lanjut
-            </p>
+
+        {/* Jadwal Live */}
+        <div className="bg-white border border-gray-200 rounded-xl p-5">
+          <h3 className="text-base font-semibold text-gray-900 mb-4">Jadwal Live Session</h3>
+          <div className="space-y-2">
+            {jadwalLive.map((j, i) => (
+              <div key={i} className={`flex items-center gap-3 px-4 py-3 rounded-lg ${j.status === "selesai" ? "bg-gray-50" : "bg-blue-50"}`}>
+                <Calendar className={`w-5 h-5 shrink-0 ${j.status === "selesai" ? "text-gray-400" : "text-blue-600"}`} />
+                <div className="flex-1">
+                  <p className={`text-sm font-medium ${j.status === "selesai" ? "text-gray-500" : "text-gray-900"}`}>{j.judul}</p>
+                  <p className="text-xs text-gray-400">{j.tanggal} | {j.waktu}</p>
+                </div>
+                <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${j.status === "selesai" ? "bg-gray-200 text-gray-600" : "bg-blue-100 text-blue-700"}`}>{j.status}</span>
+              </div>
+            ))}
           </div>
-        </section>
-        <section className="flex">
-          <div className="py-4 w-[70%] space-y-6">
-            <div className="flex gap-36 py-10 px-4">
-              <div><p className="text-xs text-zinc-400 font-light">Periode</p><h3>12 Okt - 12 Feb 2025</h3></div>
-              <div><p className="text-xs text-zinc-400 font-light">Video Kursus</p><h3>24 Video</h3></div>
-              <div><p className="text-xs text-zinc-400 font-light">Peserta</p><h3>20 Peserta</h3></div>
-            </div>
-            <div className="border border-zinc-200 rounded-lg w-full py-4 px-6 space-y-4">
-              <h3 className="text-black font-bold text-xl">Video Terakhir Dipelajari</h3>
-              <div className="w-full py-4 bg-zinc-50 flex gap-2">
-                <div className="w-[20%] px-4 py-3"><div className="bg-gray-200 py-10 rounded-xl"></div></div>
-                <div className="w-[53%] px-4 py-3 space-y-4">
-                  <h3 className="font-bold">PPN A : Perhitungan PPN Dan Ketentuan Umum Lainnya</h3>
-                  <div className="grid grid-cols-2">
-                    <div className="flex gap-2"><Clock8 size={18} color="gray" /><p className="text-sm">25 menit tersisa</p></div>
-                    <div className="flex gap-2"><Progress value={100} className="h-2 w-full bg-zinc-900 mt-1" /><p className="text-xs font-light text-gray-400">100%</p></div>
-                  </div>
-                </div>
-                <div className="py-8 px-8">
-                  <Link href={"/dashboard/kelas-saya/video-class"} className="bg-zinc-900 flex gap-3 text-white py-2 px-4 rounded-md">
-                    Lanjutkan <CirclePlay size={22} color="white" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="border border-zinc-200 rounded-lg w-12/12 py-4 px-6 space-y-3">
-              <h3 className="text-black font-bold text-xl">Daftar Video Kursus</h3>
-              <div className="py-4 w-full px-4 border border-zinc-300 flex gap-12 rounded-lg">
-                <div className="py-3"><p>1.</p></div>
-                <div className="py-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="green" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
-                <div className="space-y-4">
-                  <div><h3 className="font-bold text-base">PPN A : Perhitungan PPN Dan Ketentuan Umum Lainnya</h3></div>
-                  <div className="flex gap-1"><Clock8 size={15} color="gray" /><p className="text-xs font-light text-gray-400">45 Menit</p></div>
-                </div>
-                <Link href={"/dashboard/kelas-saya/video-class"} className="mt-4 px-10"><SquarePlay size={40} /></Link>
-              </div>
-              <div className="py-4 w-full px-4 border border-zinc-300 flex gap-12 rounded-lg">
-                <div className="py-3"><p>2.</p></div>
-                <div className="py-3"><CircleDot color="gray" /></div>
-                <div className="space-y-4">
-                  <div><h3 className="font-bold text-base text-gray-400">PPN A : Perhitungan PPN Dan Ketentuan Umum Lainnya</h3></div>
-                  <div className="flex gap-1"><Clock8 size={15} color="gray" /><p className="text-xs font-light text-gray-400">45 Menit</p></div>
-                </div>
-                <Link href={"/dashboard/kelas-saya/video-class"} className="mt-4 px-10"><SquarePlay size={40} color="gray" /></Link>
-              </div>
-            </div>
-          </div>
-          <div className="py-3 px-4 w-[30%] space-y-4">
-            <section className="bg-gray-50 flex w-full flex-col items-stretch font-medium mx-auto px-[17px] py-4 rounded-[10px]">
-              <header className="flex items-stretch gap-[7px] text-base text-black font-semibold">
-                <img src="https://api.builder.io/api/v1/image/assets/TEMP/fe463d579e73d4f664a18c30b004caafc47631eb?placeholderIfAbsent=true" className="aspect-[1] object-contain w-6 shrink-0" alt="Schedule icon" />
-                <h3 className="basis-auto my-auto">Jadwal Pembelajaran</h3>
-              </header>
-              <div className="flex flex-col">
-                <Link href={"/dashboard/kelas-saya"} className="bg-[rgba(238,238,238,1)] flex items-stretch gap-5 justify-between mt-[27px] pl-2.5 pr-[58px] py-3 rounded-[10px] hover:bg-gray-300 transition-colors w-full">
-                  <div className="flex flex-col items-center text-[10px] text-black whitespace-nowrap my-auto"><div className="self-stretch">November</div><div className="text-lg mt-1 font-bold">22</div><div className="mt-1">2025</div></div>
-                  <div className="flex flex-col items-stretch text-sm text-left"><div className="text-black">Ketentuan Umum Perpajakan KUP A</div><div className="text-[rgba(131,131,131,1)] mt-[11px]">09.00 - 12.15</div></div>
-                </Link>
-              </div>
-            </section>
-            <div className="border border-zinc-200 rounded-lg w-full py-4 px-4">
-              <div className="rounded-full bg-gray-100 px-4 py-1 w-fit text-sm">Statistik Cepat</div>
-              <div className="mt-10 space-y-4">
-                <div className="flex justify-between"><p className="text-gray-400">Total Kelas</p><p className="font-bold text-sm">15</p></div>
-                <div className="flex justify-between"><p className="text-gray-400">Kelas Aktif</p><p className="font-bold text-sm">15</p></div>
-                <div className="flex justify-between"><p className="text-gray-400">Total Waktu</p><p className="font-bold text-sm">15 Jam</p></div>
-                <div className="flex justify-between"><p className="text-gray-400">Sertifikat</p><p className="font-bold text-sm">1</p></div>
-              </div>
-            </div>
-          </div>
-        </section>
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Play, Pause, ChevronLeft, Clock, CheckCircle, Lock, List, Volume2, Star, Send, ThumbsUp } from "lucide-react";
+import { Play, Pause, ChevronLeft, Clock, CheckCircle, Lock, List, Volume2, Star, Send, ThumbsUp, Download, Upload, FileText } from "lucide-react";
 import Link from "next/link";
 
 const videoList = [
@@ -32,7 +32,7 @@ const reviewList = [
 export default function VideoClassPage() {
   const [playing, setPlaying] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [activeTab, setActiveTab] = useState<"deskripsi" | "komentar" | "review">("deskripsi");
+  const [activeTab, setActiveTab] = useState<"deskripsi" | "komentar" | "review" | "latihan">("deskripsi");
   const [komentar, setKomentar] = useState("");
   const [reviewText, setReviewText] = useState("");
   const [reviewRating, setReviewRating] = useState(0);
@@ -119,7 +119,7 @@ export default function VideoClassPage() {
       {/* Tabs */}
       <div className="bg-white border-t border-gray-200">
         <div className="flex border-b border-gray-200" data-testid="video-tabs">
-          {(["deskripsi", "komentar", "review"] as const).map(tab => (
+          {(["deskripsi", "komentar", "review", "latihan"] as const).map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -129,6 +129,7 @@ export default function VideoClassPage() {
               {tab}
               {tab === "komentar" && <span className="ml-1 text-xs text-gray-400">({komentarList.length})</span>}
               {tab === "review" && <span className="ml-1 text-xs text-gray-400">({reviewList.length})</span>}
+              {tab === "latihan" && <span className="ml-1 text-xs text-gray-400"><FileText className="w-3 h-3 inline" /></span>}
               {activeTab === tab && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900" />}
             </button>
           ))}
@@ -261,6 +262,52 @@ export default function VideoClassPage() {
                     <p className="text-sm text-gray-600 mt-2 ml-10">{r.teks}</p>
                   </div>
                 ))}
+              </div>
+            </div>
+          )}
+
+          {/* Tab Latihan Soal */}
+          {activeTab === "latihan" && (
+            <div className="space-y-6" data-testid="tab-content-latihan">
+              {/* Download Soal */}
+              <div>
+                <h3 className="text-base font-semibold text-gray-900 mb-3">File Soal Latihan</h3>
+                <p className="text-sm text-gray-500 mb-4">Download file soal latihan di bawah ini, kerjakan, lalu upload jawaban Anda.</p>
+                <div className="space-y-2">
+                  {[
+                    { nama: "Soal Latihan BAB 4 - GameObject & Components.pdf", ukuran: "2.4 MB" },
+                    { nama: "Template Project Unity - Latihan.zip", ukuran: "15.8 MB" },
+                    { nama: "Panduan Pengerjaan Soal.pdf", ukuran: "1.1 MB" },
+                  ].map((file, i) => (
+                    <div key={i} className="flex items-center justify-between bg-gray-50 rounded-lg px-4 py-3">
+                      <div className="flex items-center gap-3">
+                        <FileText className="w-5 h-5 text-blue-600 shrink-0" />
+                        <div>
+                          <p className="text-sm text-gray-900 font-medium">{file.nama}</p>
+                          <p className="text-xs text-gray-400">{file.ukuran}</p>
+                        </div>
+                      </div>
+                      <button className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-lg hover:bg-blue-700 transition-colors" data-testid={`download-soal-${i}`}>
+                        <Download className="w-3.5 h-3.5" />Download
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Upload Jawaban */}
+              <div className="pt-4 border-t border-gray-200">
+                <h3 className="text-base font-semibold text-gray-900 mb-3">Upload Jawaban Latihan</h3>
+                <p className="text-sm text-gray-500 mb-4">Upload file jawaban latihan soal Anda di sini. Format: PDF, ZIP, atau RAR (maks. 50MB).</p>
+                <label className="flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:border-gray-400 hover:bg-gray-50 transition-colors" data-testid="upload-jawaban-area">
+                  <Upload className="w-8 h-8 text-gray-400 mb-2" />
+                  <span className="text-sm font-medium text-gray-600">Klik untuk upload atau drag & drop</span>
+                  <span className="text-xs text-gray-400 mt-1">PDF, ZIP, RAR (maks. 50MB)</span>
+                  <input type="file" className="hidden" accept=".pdf,.zip,.rar" />
+                </label>
+                <button className="mt-4 px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors" data-testid="submit-jawaban">
+                  Kirim Jawaban
+                </button>
               </div>
             </div>
           )}
